@@ -18,6 +18,11 @@ let anio, mes, dia, tiempo;
 // #################################################################################################################
 // WebSocket
 
+window.player = prompt('Ingrese su Nombre');
+localStorage.setItem('player', window.player);
+console.log("Player: ", window.player);
+
+
 window.player = localStorage.getItem('player');
 if (typeof window.player === 'undefined' ||
     window.player == null ||
