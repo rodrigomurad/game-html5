@@ -1,5 +1,5 @@
 // Materia: Iteración Web
-// Actividad: Trabajo Práctico 2
+// Actividad: Trabajo Práctico 3
 // Profesor: Ing. Jose A. Fernandez
 // Alumnos: Dragomir Raicevich & Rodrigo Murad
 
