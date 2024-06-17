@@ -20,5 +20,10 @@
 <body>
     <h1>Página Offline</h1>
 </body>
+<script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('sw.js')
+    }
+</script>
 
 </html>
