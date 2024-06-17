@@ -85,5 +85,10 @@ para que se reinicien todos los valores -->
 
 </body>
 <script src="la_competencia_game.js"></script>
+<script>
+    if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('sw.js')
+    }
+</script>
 
 </html>
