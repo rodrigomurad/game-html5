@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@200');
+* {
+    font-family: Exo;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedorJuego {
+    background-color: #bfc0c2;
+    border-style: solid;
+    border-width: 3px 0px;
+    border-color: #aaa;
+    height: 500px;
+    width: 100%;
+    line-height: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#stage_pelea {
+    background-image: url("img/stage_pelea.png");
+    height: 500px;
+    width: 1045px;
+    position: relative;
+}
+
+.dropZoneStyle {
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    left: 194px;
+    top: 183px;
+    padding: 0px;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.dropZoneStyle p {
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    text-align: center;
+    text-transform: uppercase;
+    color: red;
+}
+
+.dropZoneStyleActive {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 5px dashed red;
+    border-radius: 100%;
+}
+
+.boxes {
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    padding: 0px;
+}
+
+.boxes:hover {
+    cursor: grab;
+}
+
+.luchador_waterhit {
+    left: 31px;
+    top: 43px;
+}
+
+.luchador_firex {
+    left: 31px;
+    top: 188px;
+}
+
+.luchador_earthak {
+    left: 31px;
+    top: 333px;
+}
+
+.fit_img {
+    width: 100%;
+}
+
+#box_resultado {
+    left: 461px;
+    top: 188px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: x-large;
+    font-weight: bolder;
+    cursor: default;
+}
+
+#box_fighter_PC {
+    left: 727px;
+    top: 188px;
+    cursor: default;
+    transform: scaleX(-1);
+}
+
+.infoLuchadores {
+    position: absolute;
+    width: 152px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+#nombre_luchador_usuario {
+    left: 171px;
+    top: 48px;
+}
+
+#nombre_luchador_PC {
+    left: 727px;
+    top: 48px;
+}
+
+#puntaje_usuario {
+    left: 171px;
+    top: 70px;
+}
+
+#puntaje_PC {
+    left: 727px;
+    top: 70px;
+}
+
+.boton_base {
+    position: absolute;
+    filter: invert(0.04);
+}
+
+.boton_base:hover {
+    filter: invert(0.01);
+}
+
+#boton_replay {
+    left: 250px;
+    top: 395px;
+}
+
+#boton_exit {
+    left: 708px;
+    top: 395px;
+}

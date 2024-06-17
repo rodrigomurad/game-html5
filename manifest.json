@@ -1,0 +1,32 @@
+{
+  "background_color": "#ffffff",
+  "description": "La Competencia (Videojuego para la Materia \"Iteración Web\")",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "La Competencia",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "La Competencia",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "id": "com.darfox.lacompetencia",
+  "lang": "es",
+  "categories": [
+    "entertainment",
+    "games"
+  ]
+  "screenshots" : [
+  {
+    "src": "img/screenshot1.png",
+    "sizes": "1024x576",
+    "type": "image/png",
+    "platform": "wide",
+  },
+    {
+    "src": "img/screenshot2.png",
+    "sizes": "1024x576",
+    "type": "image/png",
+    "platform": "wide",
+  }
+]
+}
