@@ -1,5 +1,5 @@
 // Materia: Iteración Web
-// Actividad: Trabajo Práctico 1
+// Actividad: Trabajo Práctico 3
 // Profesor: Ing. Jose A. Fernandez
 // Alumnos: Dragomir Raicevich & Rodrigo Murad
 
@@ -15,6 +15,71 @@ let puntaje_usuario, puntaje_PC;
 let ls = window.localStorage;
 let anio, mes, dia, tiempo;
 
+// #################################################################################################################
+// WebSocket
+
+window.player = prompt('Ingrese su Nombre');
+localStorage.setItem('player', window.player);
+console.log("Player: ", window.player);
+
+
+window.player = localStorage.getItem('player');
+if (typeof window.player === 'undefined' ||
+    window.player == null ||
+    window.player === 'null') {
+    window.player = "INEXISTENTE";
+    localStorage.setItem('player', window.player);
+}
+
+// data.value = data.value + 1;
+// console.log(data.toString());
+
+// var dataJson = JSON.stringify(data);
+// console.log(dataJson);
+
+// var obj2 = JSON.parse(dataJson);
+// obj2.value = obj2.value + 1;
+// console.log(obj2.value);
+
+var ws = new WebSocket('wss://gamehubmanager.azurewebsites.net/ws');
+
+ws.addEventListener('open', function(event) {
+    console.log('Conectado!');
+    // var dataJson = JSON.stringify(data);
+    // ws.send(dataJson);
+});
+
+ws.addEventListener('message', function(event) {
+    console.log('Mensaje recibido: ', event.data);
+    var response = JSON.parse(event.data);
+    console.log(response);
+
+    rankingGenerate(JSON.parse(response));
+});
+
+function rankingGenerate(data) {
+    var tableBody = document.getElementById('rankingTableBody');
+    tableBody.innerHTML = '';
+    data.forEach(function(item, index) {
+        var tr = document.createElement('tr');
+        var td1 = document.createElement('td');
+        var td2 = document.createElement('td');
+        var td3 = document.createElement('td');
+        console.log(item);
+
+        td1.textContent = index + 1;
+        td2.textContent = item.Player;
+        td3.textContent = item.Value;
+
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+
+        tableBody.appendChild(tr);
+    });
+};
+
+// #################################################################################################################
 // Comienza el Evento de Drag & Drop
 luchadores.addEventListener('dragstart', e => {
     // Guardamos Año, Mes, Día, Hora, Minutos, Segundos y Milisegundos en formato ISO en que Comienza el Drag & Drop
@@ -54,6 +119,7 @@ drop_zone.addEventListener("dragover", e => {
 
 // El Luchador es soltado dentro del Círculo Rojo
 drop_zone.addEventListener("drop", e => {
+    // localStorage
     // Guardamos Año, Mes, Día, Hora, Minutos, Segundos y Milisegundos en formato ISO en que Finaliza el Drag & Drop
     ls.setItem("StartDragAndDrop", anio + mes + dia + "T" + tiempo);
 
@@ -108,6 +174,18 @@ drop_zone.addEventListener("drop", e => {
     document.getElementById("puntaje_PC").innerText = puntaje_PC;
 
     ls.setItem("Resultado", texto_resultado.innerText);
+
+    // #################################################################################################################
+    // WebSocket
+    var data = {
+        game: 'La Competencia',
+        event: 'posicion',
+        player: window.player,
+        value: puntaje_usuario - 1
+    };
+    data.value = data.value + 1;
+    ws.send(JSON.stringify(data));
+    // #################################################################################################################
 });
 
 // Reiniciamos todos los Valores
