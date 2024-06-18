@@ -7,7 +7,7 @@
     "orientation": "any",
     "scope": "/",
     "short_name": "La Competencia",
-    "start_url": "https://rodrigomurad.github.io/game-html5/",
+    "start_url": "/",
     "theme_color": "#ffffff",
     "id": "com.darfox.lacompetencia",
     "lang": "es",
