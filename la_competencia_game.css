@@ -44,7 +44,6 @@ body {
     align-items: center;
     text-align: center;
     justify-content: center;
-    visibility: hidden;
 }
 
 .dropZoneStyle p {
@@ -164,5 +163,4 @@ body {
     height: 90%;
     width: 20%;
     padding: 10px;
-    /* background-color: red; */
 }
